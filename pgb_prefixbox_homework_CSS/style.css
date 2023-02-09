@@ -1,0 +1,348 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+} 
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+:root {
+    --prefixbox-primary: #1abc9c;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 30px 0 0 30px;
+    font-family: Arial, 'Montserrat';
+
+}
+
+.search-title {
+    display: flex;
+    align-items: flex-start;
+}
+
+.search-input {
+    width: 500px;
+    margin-left: 15px;
+    position: relative;
+}
+
+input#keyword {
+    position: relative;
+    width: 100%;
+    padding: 8px 15px;
+    font-size: 15px;
+    border-radius: 25px;
+    border: 2px solid var(--prefixbox-primary);
+}
+
+input#keyword:focus {
+    outline: none;
+}
+
+/*--------------------AUTOCOMPLETE------------------------*/
+
+.prefixbox-autocomplete-container {
+    margin: 0;
+    display: flex;
+    background-color: #fff;
+    box-sizing: border-box;
+    z-index: 62;
+    text-align: left;
+    position: absolute;
+    font-weight: lighter;
+    font-size: 15px;
+    width: 170%;
+    top: 44px;
+    height: 500px
+}
+
+.prefixbox-autocomplete-container.open {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.prefixbox-autocomplete-container .col-1 {
+    width: 30%;
+    height: 100%;
+    color: white;
+    background-color: var(--prefixbox-primary);
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border: solid 2px var(--prefixbox-primary);
+    margin-right: 0px;
+    font-family: Arial, 'Montserrat';
+}
+
+.group-id-1 {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+    margin: 5px;
+}
+.prefixbox-autocomplete-container .prefixbox-autocomplete-keyword-container {
+    color: black;
+    font-size: 14px;
+    padding: 10px;
+    border-bottom: solid 1px white;
+}
+
+.prefixbox-autocomplete-container .prefixbox-autocomplete-keyword-container:hover {
+    background-color: white;
+    border-radius: 25px;
+    margin-left: 10px;
+}
+
+.prefixbox-autocomplete-container .col-2 {
+    width: 70%;
+    height: 100%;
+    border: solid 2px var(--prefixbox-primary);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border: solid 2px var(--prefixbox-primary);
+    padding: 30px 30px 30px 30px;
+}
+
+.group-id-2 {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    overflow: auto;
+    width: 100%;
+}
+
+.prefixbox-group-2-title.pfbx-group-title {
+    display: none;
+}
+
+.prefixbox-autocomplete-product-container {
+    width: 90%;
+    padding: 5px;
+    border: 2px solid white;
+    border-radius: 25px;
+}
+
+.prefixbox-autocomplete-product-container:hover {
+    border: 2px solid var(--prefixbox-primary);
+    border-radius: 25px;
+}
+
+.prefixbox-autocomplete-product-container:hover .prefixbox-autocomplete-body {
+    color: var(--prefixbox-primary);
+}
+
+.prefixbox-autocomplete-product {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.prefixbox-autocomplete-left {
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prefixbox-autocomplete-left img {
+    max-width: 120px;
+    max-height: 80px;
+}
+
+.prefixbox-autocomplete-body {
+    width: 52%;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prefixbox-autocomplete-right {
+    width: 70%;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.prefixbox-autocomplete-right span {
+    font-weight: 700;
+}
+
+.prefixbox-sale-price {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.prefixbox-old-price {
+    color: gray;
+    font-size: 12px;
+    text-decoration: line-through;
+}
+
+.prefixbox-regular-price {
+    color: var(--prefixbox-primary);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Works on Firefox */
+.group-id-2 {
+    scrollbar-width: thin;
+    scrollbar-color: var(--prefixbox-primary) gray;
+}
+
+/* Works on Chrome, Edge, and Safari */
+.group-id-2::-webkit-scrollbar {
+    width: 8px;
+}
+
+.group-id-2::-webkit-scrollbar-track {
+    background: gray;
+    border-radius: 25px;
+}
+
+.group-id-2::-webkit-scrollbar-thumb {
+    background-color: var(--prefixbox-primary);
+    border-radius: 25px;
+}
+
+
+@media (max-width: 700px) {
+    .search-form {
+        margin: 0;
+        padding: 15px;
+    }
+
+    .prefixbox-autocomplete-container .prefixbox-autocomplete-keyword-container {
+        font-size: 13px;
+    }
+
+    .prefixbox-autocomplete-container {
+        width: 100%;
+        top: 44px;
+        height: 570px;
+        flex-direction: column;
+        font-size: 13px;
+    }
+
+    .prefixbox-autocomplete-container .col-1 {
+        width: 100%;
+        height: 57%;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 0px;
+
+    }
+
+    .prefixbox-autocomplete-container .col-2 {
+        width: 100%;
+        height: 43%;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        padding: 10px;
+    }
+
+
+    .group-id-2 {
+        display: grid;
+        height: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        overflow: auto;
+        width: 100%;
+    }
+
+    .prefixbox-autocomplete-right {
+        font-size: 12px;
+    }
+
+    .prefixbox-old-price {
+        font-size: 10px;
+    }
+
+    .search-title {
+        display: none;
+    }
+
+    .search-input {
+        margin: 0;
+    }
+
+}
